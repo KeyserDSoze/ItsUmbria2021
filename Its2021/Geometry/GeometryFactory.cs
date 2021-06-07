@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace Its2021.Geometry.Abstractions
 {
-    public enum GeometryType
-    {
-        Triangle = 1,
-        Circle,
-        Square,
-    }
     public class GeometryFactory
     {
         public static IAreable GetGeometry(GeometryType type)
