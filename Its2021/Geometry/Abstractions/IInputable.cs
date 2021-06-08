@@ -8,6 +8,6 @@ namespace Its2021.Geometry.Abstractions
 {
     public interface IInputable
     {
-        void ConfigureValues();
+        void Input();
     }
 }

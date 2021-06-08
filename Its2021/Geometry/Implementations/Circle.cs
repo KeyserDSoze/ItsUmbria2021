@@ -10,10 +10,6 @@ namespace Its2021.Geometry.Implementations
     internal class Circle : IAreable, IPerimeterable, IInputable
     {
         private double Radius;
-        public Circle()
-        {
-            
-        }
         public double CalculateArea()
         {
             throw new NotImplementedException();
@@ -23,7 +19,7 @@ namespace Its2021.Geometry.Implementations
         {
             throw new NotImplementedException();
         }
-        public void ConfigureValues()
+        public void Input()
         {
             Console.WriteLine("Dammi il valore del raggio");
             Radius = double.Parse(Console.ReadLine());

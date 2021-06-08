@@ -7,22 +7,16 @@ using System.Threading.Tasks;
 
 namespace Its2021.Geometry.Implementations
 {
-    public class Square : IInputable, IAreable, IPerimeterable
+    class Point : IAreable, IPerimeterable
     {
         public double CalculateArea()
         {
-            return Side * Side;
+            return 0;
         }
 
         public double CalculatePerimeter()
         {
-            return Side * 4;
-        }
-        private double Side;
-        public void Input()
-        {
-            Console.WriteLine("Inserisci il lato del quadrato");
-            Side = double.Parse(Console.ReadLine());
+            throw new NotImplementedException();
         }
     }
 }

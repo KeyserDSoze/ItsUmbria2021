@@ -18,7 +18,7 @@ namespace Its2021.Geometry.Implementations
 
         public double CalculateArea() => Side * Side / 2;
 
-        public void ConfigureValues()
+        public void Input()
         {
             Console.WriteLine("Dammi il valore del lato");
             Side = double.Parse(Console.ReadLine());

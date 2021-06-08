@@ -12,5 +12,6 @@ namespace Its2021.Geometry.Abstractions
         Triangle = 1,
         Circle,
         Square,
+        Point
     }
 }
