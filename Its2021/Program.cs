@@ -1,4 +1,5 @@
 ﻿using Its2021.Geometry;
+using Its2021.Noe;
 using Its2021.SingletonColor;
 using System;
 using System.Text;
@@ -9,7 +10,8 @@ namespace Its2021
     {
         static void Main(string[] args)
         {
-            GeometryRunner.Run();
+            //GeometryRunner.Run();
+            NoeRunner.Run();
             ////string aa = "";
             ////DateTime start = DateTime.UtcNow;
             ////StringBuilder a = new StringBuilder();
