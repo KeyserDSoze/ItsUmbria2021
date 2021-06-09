@@ -12,6 +12,7 @@ namespace Its2021.Car
         {
             CarFactory carFactory = new FactoryV1();
             Car car = carFactory.Create("FC405OD", CarType.Coupe);
+            
             Console.WriteLine(car);
             carFactory = new FactoryV2();
             Car carV2 = carFactory.Create("FC405V2", CarType.Coupe);

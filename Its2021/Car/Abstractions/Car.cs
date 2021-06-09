@@ -14,7 +14,7 @@ namespace Its2021.Car
     }
     public abstract class Car
     {
-        public CarType Type { get; }
+        private protected CarType Type { get; }
         public string Plate { get; }
         public Car(CarType type, string plate)
         {
