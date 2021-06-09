@@ -1,7 +1,9 @@
-﻿using Its2021.Geometry;
+﻿using Its2021.Car;
+using Its2021.Geometry;
 using Its2021.Noe;
 using Its2021.SingletonColor;
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Its2021
@@ -11,7 +13,8 @@ namespace Its2021
         static void Main(string[] args)
         {
             //GeometryRunner.Run();
-            NoeRunner.Run();
+            //NoeRunner.Run();
+            CarRunner.Run();
             ////string aa = "";
             ////DateTime start = DateTime.UtcNow;
             ////StringBuilder a = new StringBuilder();
@@ -27,6 +30,54 @@ namespace Its2021
             //    //NoExpiringColorValue.Instance.Background;
             //    Console.WriteLine("dsadsadsadda");
             //}
+            //UsersList usersList = new NosqlUsersList();
+            //foreach(var user in usersList.Users)
+            //{
+            //    Console.BackgroundColor = ConsoleColor.Red;
+            //    Console.WriteLine(user);
+            //}
+        }
+    }
+    public abstract class UsersList
+    {
+        public List<string> Users { get; set; }
+    }
+    public class MockedUsersList : UsersList
+    {
+        public MockedUsersList()
+        {
+            Users = new List<string>()
+            {
+                "Alessio",
+                "Fabio",
+                "Giovanni"
+            };
+        }
+    }
+    public class DbUsersList : UsersList
+    {
+        public DbUsersList()
+        {
+            //Request to DB
+            Users = new List<string>()
+            {
+                "Alessio DB",
+                "Fabio DB",
+                "Giovanni DB"
+            };
+        }
+    }
+    public class NosqlUsersList : UsersList
+    {
+        public NosqlUsersList()
+        {
+            //Request to Nosql
+            Users = new List<string>()
+            {
+                "Alessio Nosql",
+                "Fabio Nosql",
+                "Giovanni Nosql"
+            };
         }
     }
 }
