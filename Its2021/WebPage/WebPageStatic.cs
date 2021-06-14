@@ -27,36 +27,36 @@ namespace Its2021.WebPage
             Console.WriteLine(Styling.Counter);
         }
     }
-}
-static class StylingDatabase
-{
-    private static Styling FirstPage { get; } = new Styling(ConsoleColor.Black, ConsoleColor.White, "<div>{0}</div><div>{1}<div><div>{0}<div>");
-    private static Styling SecondPage { get; } = new Styling(ConsoleColor.Blue, ConsoleColor.Red, "<h1>{0}</h1><div>{1}<div>");
-    private static Styling ThirdPage { get; } = new Styling(ConsoleColor.Cyan, ConsoleColor.Green, "<h2>{0}</h2><div>{1}<div>");
-    private static Styling FourthPage { get; } = new Styling(ConsoleColor.Yellow, ConsoleColor.DarkMagenta, "<h2>{1}</h2>");
-    public static Styling GetStyling(string key)
+    static class StylingDatabase
     {
-        Thread.Sleep(1000);
-        if (key == "FirstPage")
-            return FirstPage;
-        else if (key == "SecondPage")
-            return SecondPage;
-        else if (key == "ThirdPage")
-            return ThirdPage;
-        else if (key == "FourthPage")
-            return FourthPage;
-        return null;
+        private static Styling FirstPage { get; } = new Styling(ConsoleColor.Black, ConsoleColor.White, "<div>{0}</div><div>{1}<div><div>{0}<div>");
+        private static Styling SecondPage { get; } = new Styling(ConsoleColor.Blue, ConsoleColor.Red, "<h1>{0}</h1><div>{1}<div>");
+        private static Styling ThirdPage { get; } = new Styling(ConsoleColor.Cyan, ConsoleColor.Green, "<h2>{0}</h2><div>{1}<div>");
+        private static Styling FourthPage { get; } = new Styling(ConsoleColor.Yellow, ConsoleColor.DarkMagenta, "<h2>{1}</h2>");
+        public static Styling GetStyling(string key)
+        {
+            Thread.Sleep(1000);
+            if (key == "FirstPage")
+                return FirstPage;
+            else if (key == "SecondPage")
+                return SecondPage;
+            else if (key == "ThirdPage")
+                return ThirdPage;
+            else if (key == "FourthPage")
+                return FourthPage;
+            return null;
+        }
     }
-}
-class Styling
-{
-    public ConsoleColor ConsoleColor { get; }
-    public ConsoleColor BackgroundColor { get; }
-    public string Html { get; }
-    public Styling(ConsoleColor consoleColor, ConsoleColor backgroundColor, string html)
+    class Styling
     {
-        this.ConsoleColor = consoleColor;
-        this.BackgroundColor = backgroundColor;
-        this.Html = html;
+        public ConsoleColor ConsoleColor { get; }
+        public ConsoleColor BackgroundColor { get; }
+        public string Html { get; }
+        public Styling(ConsoleColor consoleColor, ConsoleColor backgroundColor, string html)
+        {
+            this.ConsoleColor = consoleColor;
+            this.BackgroundColor = backgroundColor;
+            this.Html = html;
+        }
     }
 }
