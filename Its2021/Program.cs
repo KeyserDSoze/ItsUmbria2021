@@ -1,5 +1,6 @@
 ﻿using Its2021.Car;
 using Its2021.Geometry;
+using Its2021.MultitonColor;
 using Its2021.Noe;
 using Its2021.SingletonColor;
 using System;
@@ -14,7 +15,11 @@ namespace Its2021
         {
             //GeometryRunner.Run();
             //NoeRunner.Run();
-            CarRunner.Run();
+            //CarRunner.Run();
+            MultitonColorValue.Instance("sito1");
+            MultitonColorValue.Instance("sito2");
+            MultitonColorValue.Instance("sito3");
+            MultitonColorValue.Instance("sito4");
             ////string aa = "";
             ////DateTime start = DateTime.UtcNow;
             ////StringBuilder a = new StringBuilder();
