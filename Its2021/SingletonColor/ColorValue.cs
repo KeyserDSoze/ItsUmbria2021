@@ -38,7 +38,7 @@ namespace Its2021.SingletonColor
             Foreground = foreground;
         }
         private static DateTime ExpiringTime;
-        private static object Semaphore = new object();
+        private static readonly object Semaphore = new object();
         public ConsoleColor Background { get; }
         public ConsoleColor Foreground { get; }
         public static ColorValue Instance()

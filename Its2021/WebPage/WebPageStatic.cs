@@ -15,16 +15,16 @@ namespace Its2021.WebPage
         {
             Console.WriteLine("Inserisci la frase che andrà nel div");
             string input = Console.ReadLine();
-            Parallel.For(0, 100, i =>
-            {
-                lock (Semaphore)
-                {
-                    Console.BackgroundColor = Styling.Instance(Test[i % 4]).BackgroundColor;
-                    Console.ForegroundColor = Styling.Instance(Test[i % 4]).ConsoleColor;
-                    Console.WriteLine(string.Format(Styling.Instance(Test[i % 4]).Html, input, i.ToString()));
-                }
-            });
-            Console.WriteLine(Styling.Counter);
+            //Parallel.For(0, 100, i =>
+            //{
+            //    lock (Semaphore)
+            //    {
+            //        Console.BackgroundColor = Styling.Instance(Test[i % 4]).BackgroundColor;
+            //        Console.ForegroundColor = Styling.Instance(Test[i % 4]).ConsoleColor;
+            //        Console.WriteLine(string.Format(Styling.Instance(Test[i % 4]).Html, input, i.ToString()));
+            //    }
+            //});
+            //Console.WriteLine(Styling.Counter);
         }
     }
     static class StylingDatabase
