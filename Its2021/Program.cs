@@ -7,6 +7,7 @@ using Its2021.SingletonColor;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Its2021.Builder;
 
 namespace Its2021
 {
@@ -14,6 +15,8 @@ namespace Its2021
     {
         static void Main(string[] args)
         {
+            //EasyBuilder.GetIstance();
+            BuilderWithDirector.GetIstance();
             //GeometryRunner.Run();
             //NoeRunner.Run();
             //CarRunner.Run();
@@ -21,7 +24,7 @@ namespace Its2021
             //MultitonColorValue.Instance("sito2");
             //MultitonColorValue.Instance("sito3");
             //MultitonColorValue.Instance("sito4");
-            FlyWeightRunner.Run();
+            //FlyWeightRunner.Run();
             ////string aa = "";
             ////DateTime start = DateTime.UtcNow;
             ////StringBuilder a = new StringBuilder();
