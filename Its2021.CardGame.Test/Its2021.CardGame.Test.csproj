@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Its2021.CardGame.Library.Models\Its2021.CardGame.Library.Models.csproj" />
+    <ProjectReference Include="..\Its2021.CardGame.Library.Orchestrator\Its2021.CardGame.Library.Orchestrator.csproj" />
+  </ItemGroup>
+
+</Project>
