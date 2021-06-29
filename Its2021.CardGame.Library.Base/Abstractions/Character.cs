@@ -1,14 +1,11 @@
 ﻿using Its2021.CardGame.Library.Base.Enumerator;
 using Its2021.CardGame.Library.Base.Interfaces;
+using Its2021.CardGame.Library.Base.Utilities.Primitives;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Its2021.CardGame.Library.Base.Abstractions
 {
-    public abstract class Character: GameObject, IAttacker, IDamageable 
+    public abstract class Character: GameObject, IAttacker, IDamageable, IMoveable 
     {
         private readonly string name = null;
         public Character()
@@ -78,6 +75,13 @@ namespace Its2021.CardGame.Library.Base.Abstractions
 
             Console.WriteLine($"{name} gets {weightedDamage} damages. HealthPoint = {HealthPoint}");
             return HealthPoint;
+        }
+
+        public bool Move(Vector distance)
+        {
+            Position += distance;
+
+            return true;
         }
     }
 }

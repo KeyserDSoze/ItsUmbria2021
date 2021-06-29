@@ -10,6 +10,12 @@ namespace Its2021.CardGame.Library.Models.Characters
 {
     public class CharacterFactory
     {
+        public Character Create(string name = null)
+        {
+            var randomCharacter = (CharacterClass)(new Random((int)DateTime.UtcNow.Millisecond).Next(0,3));
+            return this.Create(randomCharacter, name);
+        }
+
         public Character Create(CharacterClass characterClass, string name =null) {
 
             switch (characterClass)
