@@ -19,7 +19,7 @@ namespace ITS2021.Web.Api.First.Controllers
         }
 
         [HttpGet]
-        // GET: ToDoItems
+        // GET: api/ToDoItems
         public async Task<ActionResult<List<ToDoItem>>> Index()
         {
             var items = await _context.ToDoItems.ToListAsync();
@@ -53,7 +53,6 @@ namespace ITS2021.Web.Api.First.Controllers
             _context.ToDoItems.Add(todoItem);
             await _context.SaveChangesAsync();
 
-            //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
             return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
         }
 
@@ -65,7 +64,6 @@ namespace ITS2021.Web.Api.First.Controllers
             {
                 return BadRequest();
             }
-
             _context.Entry(todoItem).State = EntityState.Modified;
 
             try
@@ -78,10 +76,7 @@ namespace ITS2021.Web.Api.First.Controllers
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+                else { throw; }
             }
 
             return NoContent();
