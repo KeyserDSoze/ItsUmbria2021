@@ -9,4 +9,8 @@
     <Folder Include="Interfaces\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Its2021.CardGame.Test\Its2021.CardGame.Test.csproj" />
+  </ItemGroup>
+
 </Project>

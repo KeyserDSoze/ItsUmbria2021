@@ -5,10 +5,4 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Its2021.GameOnline.Library.Base\Its2021.GameOnline.Library.Base.csproj" />
-    <ProjectReference Include="..\Its2021.GameOnline.Library.Models\Its2021.GameOnline.Library.Models.csproj" />
-    <ProjectReference Include="..\Its2021.GameOnline.Library.Orchestrator\Its2021.GameOnline.Library.Orchestrator.csproj" />
-  </ItemGroup>
-
 </Project>
