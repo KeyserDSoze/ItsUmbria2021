@@ -1,4 +1,5 @@
-﻿using Its2021.CardGame.Library.Orchestrator;
+﻿using Its2021.CardGame.Library.Models.Characters;
+using Its2021.CardGame.Library.Orchestrator;
 using Its2021.CardGame.Web.Api.Dtos;
 using Its2021.CardGame.Web.Api.Mappers;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ namespace Its2021.CardGame.Web.Api.Controllers
     public class CampaignsController : ControllerBase
     {
         private readonly CampaignManager campaignManager = CampaignManager.Instace();
+        public static CharacterFactory characterFactory = new CharacterFactory();
 
         #region Campaigns
 
@@ -67,18 +69,68 @@ namespace Its2021.CardGame.Web.Api.Controllers
 
         #region Characters
 
-        //// GET: api/Campaigns/{id}/Characters
-        //[HttpGet("{id}/Characters")]
-        //public List<CharacterReadDto> GetCharacters()
+        // GET: api/Campaigns/{id}/Characters
+        [HttpGet("{id}/Characters")]
+        public List<CharacterReadDto> GetCampaignCharacters(string id)
+        {
+            return CampaignManager.Campaigns[id].Characters
+                .Select(s=> new CharacterMapper().Map(s) ).ToList();
+        }
+
+        // GET: api/Campaigns/{id}/Characters/{name}
+        [HttpGet("{id}/Characters/{name}")]
+        public CharacterReadDto GetCampaignCharacters(string id, string name)
+        {
+            return CampaignManager.Campaigns[id].Characters
+                .Where(w => w.Name == name)
+                .Select(s => new CharacterMapper().Map(s))
+                .FirstOrDefault();
+        }
+
+        // POST api/Campaigns/{id}/Characters
+        [HttpPost("{id}/Characters")]
+        public CharacterReadDto PostCreateCharacter(
+            [FromRoute]string id, 
+            [FromBody] CharacterWriteDto character)
+        {
+            var characterCreate = characterFactory.Create(character.CharacterClass, character.Name);
+            CampaignManager.Campaigns[id].AddCharacter(characterCreate);
+
+            return new CharacterMapper().Map(characterCreate);
+        }
+
+        //POST con LIST
+        //// POST api/Campaigns/{id}/Characters
+        //[HttpPost("{id}/Characters/list")]
+        //public List<CharacterReadDto> PostCreateCharacters(
+        //    [FromRoute] string id,
+        //    [FromBody] List<CharacterWriteDto> characters)
         //{
-        //    var x1 = CampaignManager.Campaigns;
-        //    var x2 = x1.Select(s => s.Value).ToList();
+        //    List<CharacterReadDto> result = new List<CharacterReadDto>();
 
+        //    foreach (var c in characters)
+        //    {
+        //        var characterCreate = characterFactory.Create(c.CharacterClass, c.Name);
+        //        CampaignManager.Campaigns[id].AddCharacter(characterCreate);
+        //        result.Add(new CharacterMapper().Map(characterCreate));
+        //    }
 
-        //    return CampaignManager.Campaigns
-        //        .Select(s => s.Value).ToList()
-        //        .Select(w => new CampaignMapper().Map(w)).ToList();
+        //    return result;
         //}
+
+
+        // DELETE api/Campaigns/{id}/Characters/{id}
+        [HttpDelete("{idCampaign}/Characters/{id}")]
+        public IActionResult DeleteCharacter(string idCampaign, string name)
+        {
+            var character = CampaignManager.Campaigns[idCampaign].Characters
+                .Where(w => w.Name == name)
+                .FirstOrDefault();
+
+            CampaignManager.Campaigns[idCampaign].RemoveCharacter(character);
+
+            return NoContent();
+        }
 
         #endregion
 
