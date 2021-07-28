@@ -8,15 +8,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Its2021.Builder;
+using System.Threading.Tasks;
 
 namespace Its2021
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             //EasyBuilder.GetIstance();
-            BuilderWithDirector.GetIstance();
+            //BuilderWithDirector.GetIstance();
+            await AsyncExplained.RunAsync();
             //GeometryRunner.Run();
             //NoeRunner.Run();
             //CarRunner.Run();
